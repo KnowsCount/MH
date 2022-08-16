@@ -19,12 +19,12 @@ export default function About() {
 	return (
 		<>
 			<Head>
-				<title>Huginn / About</title>
+				<title>Huginn / Submit</title>
 				<meta name="description" content="poetry!" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Hero>
-				<Heading>ABOUT</Heading>
+				<Heading>Submit</Heading>
 			</Hero>
 		</>
 	)
