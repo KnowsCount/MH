@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import Logo from './common/Logo/Logo'
 
 const Nav = styled.nav`
 	height: 80px;
@@ -48,13 +47,10 @@ const Navbar = () => {
 		<Nav>
 			<div>
 				<Link href="/" passHref>
-					<StyledLink>Huggin</StyledLink>
+					<StyledLink>Muses' Huggin</StyledLink>
 				</Link>
 			</div>
 			<div>
-				{/* <Link href="/learn" passHref>
-					<StyledLink href="learn">Learn</StyledLink>
-				</Link> */}
 				{NavLink.map(({ path, display }) => (
 					<Link href={path} passHref key={path}>
 						<StyledLink>{display}</StyledLink>
