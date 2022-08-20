@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 // import { Button } from '../components/home/button'
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 // import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger' // had to import from dist directory
 import {
 	LocomotiveScrollProvider,
-	useLocomotiveScroll,
+	// useLocomotiveScroll,
 } from 'react-locomotive-scroll'
 
 const Main = styled.div`
@@ -155,7 +155,7 @@ export default function Home() {
 			ease: 'none',
 		})
 
-		// window.removeEventListener('load', onLoad)m m,
+		// window.removeEventListener('load', onLoad),
 		// window.addEventListener('load', onLoad, { passive: true })
 		// return () => window.removeEventListener('load', onLoad)
 	}, [])
