@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { Cards } from '../components/common/Cards'
+import { Cards } from '../components/learn/Cards'
 
 const Hero = styled.div`
 	height: 90vh;
