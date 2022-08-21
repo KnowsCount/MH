@@ -9,8 +9,11 @@
 		"gsap": "^3.11.0",
 		"locomotive-scroll": "^4.1.4",
 		"next": "latest",
+		"plyr-react": "^5.1.0",
+		"prop-types": "^15.8.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-icons": "^4.4.0",
 		"react-locomotive-scroll": "^0.2.2",
 		"styled-components": "^5.3.5"
 	},

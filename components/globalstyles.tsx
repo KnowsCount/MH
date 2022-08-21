@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+	/* Plyr */
+	:root {
+		--plyr-color-main: white;
+	}
+
 	html,
 	body {
 		color: ${({ theme }) => theme.colors.primary};
