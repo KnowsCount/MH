@@ -24,3 +24,45 @@ export const NavLink = [
 		display: 'Become a Partner',
 	},
 ]
+
+export const learnCards: { title: string; contentCount: number }[] = [
+	{
+		title: 'Why Learn',
+		contentCount: 2,
+	},
+	{
+		title: 'Why Still',
+		contentCount: 5,
+	},
+	{
+		title: 'How do I Learn',
+		contentCount: 3,
+	},
+	{
+		title: 'What Next?',
+		contentCount: 3,
+	},
+	{
+		title: 'Keep Learning',
+		contentCount: 9,
+	},
+	{
+		title: "I'll Quit",
+		contentCount: 5,
+	},
+	{
+		title: 'Makes Sense',
+		contentCount: 1,
+	},
+]
+
+export const quarterlyCards: { title: string; issueNumber: number }[] = [
+	{
+		title: 'Life',
+		issueNumber: 1,
+	},
+	{
+		title: 'Love',
+		issueNumber: 2,
+	},
+]

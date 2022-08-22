@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 import { Cards } from '../components/learn/Cards'
+import { learnCards } from '../config'
 
 const Hero = styled.div`
 	height: 90vh;
@@ -37,7 +38,7 @@ export default function About() {
 				<Heading>Learn</Heading>
 			</Hero>
 			<CardWrapper>
-				<Cards />
+				<Cards cards={learnCards} />
 			</CardWrapper>
 		</>
 	)
