@@ -1,4 +1,4 @@
-export const NavLink = [
+export const NavLink: { path: string; display: string }[] = [
 	{
 		path: '/learn',
 		display: 'Learn',
@@ -25,9 +25,14 @@ export const NavLink = [
 	},
 ]
 
-export const learnCards: { title: string; contentCount: number }[] = [
+export const learnCards: {
+	title: string
+	path?: string
+	contentCount: number
+}[] = [
 	{
 		title: 'Why Learn',
+		path: '/learn/erp',
 		contentCount: 2,
 	},
 	{

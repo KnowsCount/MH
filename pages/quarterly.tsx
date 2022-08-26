@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { Cards } from '../components/quarterly/Cards'
+import { Covers } from '../components/quarterly/Covers'
 import { quarterlyCards } from '../config'
 
 const Hero = styled.div`
@@ -38,7 +38,7 @@ export default function About() {
 				<Heading>Quarterly</Heading>
 			</Hero>
 			<CardWrapper>
-				<Cards cards={quarterlyCards} />
+				<Covers cards={quarterlyCards} />
 			</CardWrapper>
 		</>
 	)

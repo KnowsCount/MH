@@ -75,9 +75,10 @@ const HamburgerMenu = styled.div<Props>`
 	justify-content: space-between;
 	align-items: center;
 	cursor: pointer;
-	&:hover > ${HamburgerLines} {
+	/* to do: good animation for the hamburger lines */
+	/* &:hover > ${HamburgerLines} {
 		background: rgb(0, 0, 0);
-	}
+	} */
 	@media (max-width: 960px) {
 		display: flex;
 		visibility: ${({ show }) => (show ? 'hidden' : 'visible')};
