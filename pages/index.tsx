@@ -9,6 +9,7 @@ import {
 	LocomotiveScrollProvider,
 	// useLocomotiveScroll,
 } from 'react-locomotive-scroll'
+import { Hero } from '../components/common/Hero'
 
 const Main = styled.div`
 	color: #111;
@@ -36,14 +37,6 @@ const Main = styled.div`
 		width: auto;
 		object-fit: cover;
 	}
-`
-
-const Hero = styled.div`
-	height: 90vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #fff;
 `
 
 const Heading = styled.h1`

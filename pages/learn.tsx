@@ -1,15 +1,8 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 import { Cards } from '../components/learn/Cards'
+import { Hero } from '../components/common/Hero'
 import { learnCards } from '../config'
-
-const Hero = styled.div`
-	height: 90vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #fff;
-`
 
 const Heading = styled.h1`
 	color: #000;

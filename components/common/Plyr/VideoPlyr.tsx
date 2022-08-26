@@ -1,12 +1,20 @@
 import { useRef } from 'react'
+import styled from 'styled-components'
 import Plyr, { APITypes } from 'plyr-react'
 import 'plyr-react/plyr.css'
+import { Button } from '../Button'
 
 interface Props {
 	videoId: string
 	videoProvider: any
-	videoOptions?: undefined
+	videoOptions?: any
 }
+
+const ButtonWrapper = styled.div`
+	padding-top: 2rem;
+	display: flex;
+	justify-content: center;
+`
 
 const PlyrComponent = (props: Props) => {
 	const videoId = props.videoId
@@ -17,6 +25,10 @@ const PlyrComponent = (props: Props) => {
 
 	const enterVideo = () => {
 		;(ref.current?.plyr as Plyr)?.fullscreen.enter()
+	}
+
+	const test = () => {
+		console.log('success')
 	}
 
 	const plyrVideo =
@@ -39,7 +51,11 @@ const PlyrComponent = (props: Props) => {
 	return (
 		<div>
 			{plyrVideo}
-			<button onClick={enterVideo}>fullscreen</button>
+			<ButtonWrapper>
+				<Button onClick={test}>Before</Button>
+				<Button onClick={enterVideo}>Fullscreen</Button>
+				<Button onClick={test}>Next</Button>
+			</ButtonWrapper>
 		</div>
 	)
 }

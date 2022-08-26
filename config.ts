@@ -27,43 +27,18 @@ export const NavLink: { path: string; display: string }[] = [
 
 export const learnCards: {
 	title: string
-	path?: string
+	path: string
 	contentCount: number
 }[] = [
 	{
-		title: 'Why Learn',
+		title: 'English Romanticist Poetry 101',
 		path: '/learn/erp',
-		contentCount: 2,
+		contentCount: 7,
 	},
 	{
-		title: 'Why Still',
-		path: '/learn/erp',
+		title: 'The Old Art of Poesy',
+		path: '/learn/poesy',
 		contentCount: 5,
-	},
-	{
-		title: 'How do I Learn',
-		path: '/learn/erp',
-		contentCount: 3,
-	},
-	{
-		title: 'What Next?',
-		path: '/learn/erp',
-		contentCount: 3,
-	},
-	{
-		title: 'Keep Learning',
-		path: '/learn/erp',
-		contentCount: 9,
-	},
-	{
-		title: "I'll Quit",
-		path: '/learn/erp',
-		contentCount: 5,
-	},
-	{
-		title: 'Makes Sense',
-		path: '/learn/erp',
-		contentCount: 1,
 	},
 ]
 
@@ -75,5 +50,36 @@ export const quarterlyCards: { title: string; issueNumber: number }[] = [
 	{
 		title: 'Love',
 		issueNumber: 2,
+	},
+]
+
+export const courses: { title: string; path: string }[] = [
+	{
+		title: 'What is Romanticism?',
+		path: '/learn/erp/1',
+	},
+	{
+		title: 'The Two Williams',
+		path: '/learn/erp/2',
+	},
+	{
+		title: 'Coleridge',
+		path: `learn/erp/3`,
+	},
+	{
+		title: 'Keats',
+		path: '/learn/erp/4',
+	},
+	{
+		title: 'Lord Byron',
+		path: '/learn/erp/5',
+	},
+	{
+		title: 'Mr and Mrs Shelley',
+		path: '/learn/erp/6',
+	},
+	{
+		title: 'The Many Others',
+		path: '/learn/erp/6',
 	},
 ]

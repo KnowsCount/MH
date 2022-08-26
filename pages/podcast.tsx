@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { Plyr } from '../components/common/Plyr'
+import { AudioPlyr } from '../components/common/Plyr'
 import 'plyr-react/plyr.css'
 
 const Hero = styled.div`
@@ -43,7 +43,7 @@ export default function Podcast() {
 				<Heading>Podcast</Heading>
 			</Hero>
 			<PlyrWrapper>
-				<Plyr />
+				<AudioPlyr />
 			</PlyrWrapper>
 		</>
 	)
