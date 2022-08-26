@@ -1,1 +1,2 @@
-export { default as Plyr } from './Plyr'
+export { default as AudioPlyr } from './AudioPlyr'
+export { default as VideoPlyr } from './VideoPlyr'

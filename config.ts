@@ -37,26 +37,32 @@ export const learnCards: {
 	},
 	{
 		title: 'Why Still',
+		path: '/learn/erp',
 		contentCount: 5,
 	},
 	{
 		title: 'How do I Learn',
+		path: '/learn/erp',
 		contentCount: 3,
 	},
 	{
 		title: 'What Next?',
+		path: '/learn/erp',
 		contentCount: 3,
 	},
 	{
 		title: 'Keep Learning',
+		path: '/learn/erp',
 		contentCount: 9,
 	},
 	{
 		title: "I'll Quit",
+		path: '/learn/erp',
 		contentCount: 5,
 	},
 	{
 		title: 'Makes Sense',
+		path: '/learn/erp',
 		contentCount: 1,
 	},
 ]

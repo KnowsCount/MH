@@ -1,8 +1,10 @@
+import Link from 'next/link'
 import { Container, Card, Child, Title, Text } from '../../common/Card'
 
 interface Props {
 	cards: {
 		title: string
+		path: string
 		contentCount: number
 	}[]
 }
@@ -18,17 +20,19 @@ const Cards: React.FC<Props> = ({ cards }) => {
 				}
 				return (
 					<>
-						<Card>
-							<Child>
-								<Title>{card.title}</Title>
-								<Text>
-									{card.contentCount} videos / articles
-								</Text>
-							</Child>
-							{childArray}
-						</Card>
+						<Link href={card.path}>
+							<Card>
+								<Child>
+									<Title>{card.title}</Title>
+									<Text>
+										{card.contentCount} videos / articles
+									</Text>
+								</Child>
+								{childArray}
+							</Card>
 
-						{/* {Array(card.contentCount).fill(<Child></Child>)} */}
+							{/* {Array(card.contentCount).fill(<Child></Child>)} */}
+						</Link>
 					</>
 				)
 			})}

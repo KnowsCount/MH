@@ -8,7 +8,7 @@ const videoOptions = undefined
 
 const PlyrWrapper = styled.div``
 
-const PlyrComponent = () => {
+const AudioPlyr = () => {
 	const ref = useRef<APITypes>(null)
 
 	const enterVideo = () => {
@@ -39,4 +39,4 @@ const PlyrComponent = () => {
 	)
 }
 
-export default PlyrComponent
+export default AudioPlyr
