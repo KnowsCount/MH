@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { VideoPlyr } from '../../components/common/Plyr'
+import { VideoPlyr } from '@components/common/Plyr'
 
 const Post = () => {
 	const router = useRouter()
