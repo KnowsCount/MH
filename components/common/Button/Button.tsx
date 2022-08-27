@@ -1,4 +1,3 @@
-import { Children } from 'react'
 import styled from 'styled-components'
 
 const Button = styled.button`
@@ -13,6 +12,7 @@ const Button = styled.button`
 	border-radius: 5px;
 	text-align: center;
 	transition: all 0.3s ease;
+	cursor: pointer;
 	:hover {
 		color: black;
 		background: white;

@@ -3,7 +3,7 @@ import { Hero } from '../../components/common/Hero'
 // import { Heading } from '../../components/common/Heading'
 import styled from 'styled-components'
 import { CourseList } from '../../components/learn/CourseList'
-import { courses } from '../../config'
+import { erp } from '../../config'
 
 const Heading = styled.h1`
 	color: #000;
@@ -23,7 +23,7 @@ const Post = () => {
 				<Heading>English Romanticist Poetry 101</Heading>
 			</Hero>
 			<CourseListWrapper>
-				<CourseList items={courses} />
+				<CourseList items={erp} />
 			</CourseListWrapper>
 		</>
 	)

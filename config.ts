@@ -53,7 +53,7 @@ export const quarterlyCards: { title: string; issueNumber: number }[] = [
 	},
 ]
 
-export const courses: { title: string; path: string }[] = [
+export const erp: { title: string; path: string }[] = [
 	{
 		title: 'What is Romanticism?',
 		path: '/learn/erp/1',
