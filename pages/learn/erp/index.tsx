@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { Hero } from '@components/common/Hero'
 // import { Heading } from '@components/common/Heading'
 import styled from 'styled-components'
