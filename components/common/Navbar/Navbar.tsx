@@ -1,6 +1,8 @@
+import { FC } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { NavLink } from '../../../config'
+import NavbarProfile from './NavbarProfile'
 
 type Props = {
 	show: any
@@ -63,7 +65,7 @@ const NavCartLink = styled.a`
 
 const HamburgerLines = styled.div`
 	width: 100%;
-	height: 3px;
+	height: 2px;
 	background: #f4f4f4;
 `
 
@@ -85,6 +87,18 @@ const HamburgerMenu = styled.div<Props>`
 	}
 `
 
+const Button = styled.div`
+	color: white;
+`
+
+// interface userProps {
+// 	isLogin: boolean
+// 	name?: string
+// 	id?: string
+// 	click?: any
+// 	show?: any
+// }
+
 const Navbar = ({ click, show }) => {
 	return (
 		<NavbarElement>
@@ -105,6 +119,7 @@ const Navbar = ({ click, show }) => {
 				<HamburgerLines></HamburgerLines>
 				<HamburgerLines></HamburgerLines>
 			</HamburgerMenu>
+			<NavbarProfile isLogin={false}></NavbarProfile>
 		</NavbarElement>
 	)
 }

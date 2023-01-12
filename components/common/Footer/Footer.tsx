@@ -7,6 +7,9 @@ const FooterWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 `
 
 const Footer = () => {

@@ -8,21 +8,17 @@ export const NavLink: { path: string; display: string }[] = [
 		display: 'Podcast',
 	},
 	{
-		path: '/submit',
-		display: 'Submit',
+		path: '/column',
+		display: 'Column',
 	},
 	{
 		path: '/quarterly',
 		display: 'Poetry Quarterly',
 	},
-	{
-		path: '/contest',
-		display: 'Contest, Awards, and Grants',
-	},
-	{
-		path: '/join',
-		display: 'Become a Partner',
-	},
+	// {
+	// 	path: '/contest',
+	// 	display: 'Contest, Awards, and Grants',
+	// },
 ]
 
 export const learnCards: {
