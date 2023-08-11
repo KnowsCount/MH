@@ -1,9 +1,12 @@
-import Link from 'next/link'
+import router from 'next/router'
 import { FC } from 'react'
 import styled from 'styled-components'
+import { useState } from 'react'
+import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
+import { Database } from '../../../types/supabase'
+type Profiles = Database['public']['Tables']['profiles']['Row']
 
 interface userProps {
-	isLogin: boolean
 	name?: string
 	id?: string
 }
@@ -30,23 +33,52 @@ const ProfileArea = styled.div`
 	transition: all 0.2s ease-in-out;
 `
 
-const NavbarProfile: FC<userProps> = ({ isLogin, name }) => {
+const NavbarProfile: FC<userProps> = () => {
+	const [loading, setLoading] = useState(true)
+	const [isLoggedIn, setIsLoggedIn] = useState(true)
+	const [username, setUsername] = useState<Profiles['username']>(null)
+	const supabase = useSupabaseClient<Database>()
+	const user = useUser()
+
+	async function getProfile() {
+		try {
+			setLoading(true)
+			if (!user) throw new Error('No user')
+
+			let { data, error, status } = await supabase
+				.from('profiles')
+				.select(`username, website, avatar_url`)
+				.eq('id', user.id)
+				.single()
+
+			if (error && status !== 406) {
+				throw error
+			}
+
+			if (data) {
+				setUsername(data.username)
+			}
+		} catch (error) {
+			alert('Error loading user data!')
+			console.log(error)
+		} finally {
+			setLoading(false)
+		}
+	}
+
 	return (
 		<ProfileWrapper>
-			{isLogin ? (
-				<ProfileArea>
-					<Button>Hi, {name}</Button>
-				</ProfileArea>
-			) : (
-				<ProfileArea>
-					<Button>
-						<Link href={'/signin'} passHref>
-							Sign in
-						</Link>
-					</Button>{' '}
-					| <Button>Sign up</Button>
-				</ProfileArea>
-			)}
+			<ProfileArea>
+				{!isLoggedIn ? (
+					<Button onClick={() => router.push('/signin')}>
+						Sign in / Signup
+					</Button>
+				) : (
+					<Button onClick={() => router.push('/account')}>
+						Hi, {username || ''}
+					</Button>
+				)}
+			</ProfileArea>
 		</ProfileWrapper>
 	)
 }

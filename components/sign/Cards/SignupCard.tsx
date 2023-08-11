@@ -1,5 +1,4 @@
 import BoringAvatar from 'boring-avatars'
-import Link from 'next/link'
 import {
 	Wrapper,
 	Container,
@@ -12,8 +11,30 @@ import {
 	Input,
 	Button,
 } from './styles'
+import { useState } from 'react'
+import { supabase } from '../../../config'
+import { useRouter } from 'next/router'
 
 const SignupCard = () => {
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+	const router = useRouter()
+
+	const handleSubmit = async (e: { preventDefault: () => void }) => {
+		e.preventDefault()
+		try {
+			// const { user, session, error } = await supabase.auth.signUp({
+			const { error } = await supabase.auth.signUp({
+				email,
+				password,
+			})
+			if (error) throw error
+			alert('Signed Up')
+			router.push('/')
+		} catch (error: any) {
+			alert(error.message)
+		}
+	}
 	return (
 		<Wrapper>
 			<Container>
@@ -21,7 +42,7 @@ const SignupCard = () => {
 					<AvatarWrapper>
 						<BoringAvatar
 							size={50}
-							name="KnowsCount Chen"
+							name="signup"
 							variant="marble"
 							colors={[
 								'#D1313D',
@@ -35,13 +56,10 @@ const SignupCard = () => {
 					<Heading>Signup Here</Heading>
 					<Description>to glean your thoughts</Description>
 				</div>
-				<FormWrapper action="#" method="POST">
+				<FormWrapper action="#" method="POST" onSubmit={handleSubmit}>
 					<input type="hidden" name="remember" value="true" />
 					<Form>
-						<div>
-							<label htmlFor="email-address" className="sr-only">
-								Email address
-							</label>
+						<FormElement>
 							<Input
 								id="email-address"
 								name="email"
@@ -49,31 +67,29 @@ const SignupCard = () => {
 								autoComplete="email"
 								required
 								placeholder="Email address"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
 							/>
-						</div>
-						<div>
-							<label htmlFor="password" className="sr-only">
-								Password
-							</label>
+						</FormElement>
+						<FormElement>
 							<Input
 								id="password"
 								name="password"
 								type="password"
 								autoComplete="current-password"
 								required
-								className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
 								placeholder="Password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
 							/>
-						</div>
+						</FormElement>
 					</Form>
 
 					<div>
 						<Button type="submit">Signup</Button>
 					</div>
 				</FormWrapper>
-				<Button>
-					<Link href={'/'}>Go Back</Link>
-				</Button>
+				<Button onClick={() => router.push('/')}>Go Back</Button>
 			</Container>
 		</Wrapper>
 	)

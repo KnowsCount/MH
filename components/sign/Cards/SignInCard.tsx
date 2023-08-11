@@ -1,5 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
+import { useState } from 'react'
+import { supabase } from '../../../config'
+import { useRouter } from 'next/router'
 import BoringAvatar from 'boring-avatars'
 import styled from 'styled-components'
 import {
@@ -35,7 +38,7 @@ const TextLink = styled.span`
 	}
 `
 
-const MiscWrapper = styled.div`
+/* const MiscWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -82,104 +85,100 @@ const Forgot = styled.a`
 		color: #6b7280;
 		background-color: #f3f4f6;
 	}
-`
+` */
 
-const LoginCard = () => {
-	const [state, setState] = React.useState({
-		username: '',
-		// password: '',
-	})
+const SignInCard = () => {
+	const [loading, setLoading] = useState(false)
+	const [email, setEmail] = useState('')
+	const [emailSent, setEmailSent] = useState(false)
+	const router = useRouter()
 
+	const handleLogin = async (email: string) => {
+		try {
+			setLoading(true)
+			const { error } = await supabase.auth.signInWithOtp({
+				email,
+			})
+			if (error) throw error
+			setEmailSent(true)
+		} catch (error: any) {
+			console.error(error.error_description || error.message)
+		} finally {
+			setLoading(false)
+		}
+	}
 	return (
 		<Wrapper>
 			<Container>
-				<div>
-					<AvatarWrapper>
-						<BoringAvatar
-							size={50}
-							name={state.username}
-							variant="marble"
-							colors={[
-								'#D1313D',
-								'#E5625C',
-								'#F9BF76',
-								'#8EB2C5',
-								'#615375',
-							]}
-						/>
-					</AvatarWrapper>
-					<Heading>Sign In to your account</Heading>
+				<AvatarWrapper>
+					<BoringAvatar
+						size={50}
+						name="sign in"
+						variant="marble"
+						colors={[
+							'#D1313D',
+							'#E5625C',
+							'#F9BF76',
+							'#8EB2C5',
+							'#615375',
+						]}
+					/>
+				</AvatarWrapper>
+				<Heading>Sign In to your account</Heading>
+				{emailSent ? (
 					<Description>
-						Or
-						<TextLink>
-							<Link href="/signup">
-								start your journey by creating one
-							</Link>
-						</TextLink>
+						An e-mail has been sent to your e-mail address. Please
+						click the link in this mail to sign in.
+						<p>
+							<Button onClick={() => setEmailSent(false)}>
+								Retry
+							</Button>
+						</p>
 					</Description>
-				</div>
-				<FormWrapper action="#" method="POST">
-					<input type="hidden" name="remember" value="true" />
-					<Form>
-						<FormElement>
-							{/* <label htmlFor="username" className="sr-only">
-								Username
-							</label> */}
-							<Input
-								id="username"
-								name="username"
-								type="username"
-								autoComplete="username"
-								value={state.username}
-								onChange={(e) =>
-									setState({ username: e.target.value })
-								}
-								required
-								placeholder="Username"
-							/>
-						</FormElement>
-						<FormElement>
-							{/* <label htmlFor="password" className="sr-only">
-								Password
-							</label> */}
-							<Input
-								id="password"
-								name="password"
-								type="password"
-								autoComplete="current-password"
-								required
-								placeholder="Password"
-							/>
-						</FormElement>
-					</Form>
-
-					<MiscWrapper>
-						<RememberMeWrapper>
-							<RememberMe
-								id="remember-me"
-								name="remember-me"
-								type="checkbox"
-							/>
-							<RememberMeLabel htmlFor="remember-me">
-								Remember me
-							</RememberMeLabel>
-						</RememberMeWrapper>
-
-						<ForgotWrapper>
-							<Forgot href="#">Forgot your password?</Forgot>
-						</ForgotWrapper>
-					</MiscWrapper>
-
-					<div>
-						<Button type="submit">Sign In</Button>
-					</div>
-				</FormWrapper>
-				<Button>
-					<Link href={'/'}>Go Back</Link>
-				</Button>
+				) : (
+					<FormWrapper
+						onSubmit={(e) => {
+							e.preventDefault()
+							handleLogin(email)
+						}}
+					>
+						<Form>
+							<Description>
+								To sign in or create an account, please enter
+								your email address. You will receive a magic
+								link in your mailbox.
+							</Description>
+							<Form>
+								<FormElement>
+									<Input
+										id="email"
+										type="email"
+										placeholder="Email"
+										value={email}
+										required
+										disabled={loading}
+										onChange={(e) =>
+											setEmail(e.target.value)
+										}
+									/>
+								</FormElement>
+							</Form>
+							<Button type="submit" disabled={loading}>
+								<span>
+									{loading
+										? 'Processing…'
+										: 'Send magic link'}
+								</span>
+							</Button>
+							{/* <Button onClick={() => router.push('/signup')}>
+								Signup
+							</Button> */}
+						</Form>
+					</FormWrapper>
+				)}
 			</Container>
 		</Wrapper>
 	)
 }
 
-export default LoginCard
+export default SignInCard
