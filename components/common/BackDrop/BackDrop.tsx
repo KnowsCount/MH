@@ -24,7 +24,7 @@ const CloseIcon = styled(FaTimes)`
 	size: 40px;
 `
 
-const Backdrop = ({ show, click }) => {
+const Backdrop = ({ show: any, click }) => {
 	return (
 		show && (
 			<BackdropContainer onClick={click}>
